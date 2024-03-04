@@ -39,5 +39,5 @@ target/
 venv/
 *.pyc
 
-# Mac specific
-.DS_Store
+# Mac specifyc
+**/.DS_Store
