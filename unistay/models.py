@@ -2,12 +2,11 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 
-# User model is already provided by Django, you might extend it using a OneToOneField if needed.
+# User model is already provided by Django, extend it using a OneToOneField if needed.
 
 class UserProfile(models.Model):
     # Link UserProfile to Django's User model
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # Additional fields as per your ER diagram
     user_type = models.CharField(max_length=20, choices=[('individual', 'Individual'), ('business', 'Business')])
 
 class IndividualUser(models.Model):
