@@ -16,3 +16,12 @@ def write_review(request):
     else:
         form = ReviewForm()
     return render(request, 'unistay/write_review.html', {'form': form})
+
+def about_us(request):
+    return render(request, 'unistay/about-us.html')
+
+def contact_us(request):
+    return render(request, 'unistay/contact-us.html')
+
+def personal_login(request):
+    return render(request, 'unistay/personal-login.html')

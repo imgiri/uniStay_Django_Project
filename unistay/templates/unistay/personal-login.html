@@ -1,0 +1,65 @@
+{% extends 'unistay/base.html' %}
+
+{% load static %}
+
+{% block title %}Login{% endblock title %}
+
+{% block content %}
+  
+
+    <main>
+      <div class="container-fluid seperator"></div>
+
+      <div class="container-fluid login-main-div">
+        <h1 class="login-header">Welcome</h1>
+
+        <h3 class="login-desc">
+          By continuing, you agree to our terms of service and privacy policy.
+        </h3>
+
+        <form>
+          <div class="form-group">
+            <label class="login-form-label" for="emailInput"
+              >Email address</label
+            >
+            <input
+              type="email"
+              class="form-control form-control-lg"
+              id="emailInput"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+            />
+            <small id="emailHelp" class="form-text text-muted"
+              >We'll never share your email with anyone else.</small
+            >
+          </div>
+          <div class="form-group">
+            <label class="login-form-label" for="passwordInput">Password</label>
+            <input
+              type="password"
+              class="form-control form-control-lg"
+              id="passwordInput"
+              placeholder="Password"
+            />
+          </div>
+          <div class="form-check"></div>
+          <small
+            id="passwordHelp"
+            class="form-text text-muted forgot-password-box"
+            ><a href="#">Forgot password?</a></small
+          >
+
+          <button id="login-btn" type="submit" class="btn btn-primary">
+            Login
+          </button>
+          <small id="signHelp" class="form-text text-muted sign-up-box"
+            >New to us? <a href="#">Sign up</a></small
+          >
+        </form>
+      </div>
+
+      <div class="container-fluid seperator"></div>
+    </main>
+
+{% endblock content %}
+ 

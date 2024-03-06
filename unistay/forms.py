@@ -2,7 +2,6 @@
 
 from django import forms
 
-
 class ReviewForm(forms.Form):
     accommodation_name = forms.CharField(label='Accommodation Name', max_length=100)
     rating = forms.ChoiceField(label='Select your rating', choices=[(x, x) for x in range(1, 6)])

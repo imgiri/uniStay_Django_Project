@@ -328,37 +328,6 @@ body {
   opacity: 1;
 }
 
-/*started by giri*/
-
-.search-form { 
-  display: flex; 
-  align-items: center;
-}
-
-.search-input {
-  padding: 1rem 1.5rem;
-  border: 1px solid #eee;
-  border-radius: 5px;
-  margin-right: 1rem; 
-}
-
-/* Search Results Styling*/
-.search-results-list {
-  list-style: none;
-  padding: 0;
-}
-
-.search-result {
-  border-bottom: 1px solid #eee;
-  padding: 2rem 0;
-}
-
-.review-spotlight {
-  font-style: italic;
-}
-
-/*giri - end*/
-
 .btn,
 .btn:link,
 .btn:visited {

@@ -1,0 +1,50 @@
+{% extends 'unistay/base.html' %}
+
+{% load static %}
+
+{% block title %}Contact Us{% endblock title %}
+
+{% block content %}
+
+
+<main>
+  <div class="container-fluid seperator"></div>
+
+  <div class="container-fluid">
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <img src="{% static 'unistay/img/contact-us-img.jpg' %}" class="contact-us-img" alt="contact us img">
+        </div>
+        <div class="col">
+          <div class="row contact-top">
+            <h1 class="heading-primary" id="about-us-right-title" >Contact Us</h1>
+            <div class="contact-box container-fluid">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nisi elit, interdum non iaculis vel, feugiat ut massa. In nec finibus dui, in egestas leo. Vivamus feugiat consectetur mauris eu dignissim. Sed in odio a magna placerat dictum non ac lacus. Cras at sapien ut risus finibus rutrum quis nec risus. Sed semper, dui vitae scelerisque tempus, dolor est semper nisi, id suscipit ipsum .
+      
+            </div>
+          </div>
+          <div class="row bottom">
+            <div class="row contact-row">
+              <img class="contact-svg" src="{% static 'unistay/img/svgs/call-outline.svg' %}" alt="call">
+              <p class="about-text">PHONE NO</p>
+            </div>
+            <div class="row contact-row">
+              <img src="{% static 'unistay/img/svgs/mail-outline.svg' %}" alt="mail" class="contact-svg">
+              <p class="about-text">EMAIL</p>
+            </div>
+            <div class="row contact-row">
+              <img src="{% static 'unistay/img/svgs/map-outline.svg' %}" alt="map" class="contact-svg">
+              <p class="about-text">ADDRESS</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+  <div class="container-fluid seperator"></div>
+
+</main>
+
+{% endblock content %}
