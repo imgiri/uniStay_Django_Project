@@ -16,7 +16,7 @@ def write_review(request):
             return redirect('index')
     else:
         form = ReviewForm()
-    return render(request, 'unistay/write_review.html', {'form': form})
+    return render(request, 'unistay/write-review.html', {'form': form})
 
 def about_us(request):
     return render(request, 'unistay/about-us.html')
@@ -26,6 +26,18 @@ def contact_us(request):
 
 def personal_login(request):
     return render(request, 'unistay/personal-login.html')
+
+def search_results(request):
+    return render(request, 'unistay/search-results.html')
+
+def add_accom(request):
+    return render(request, 'unistay/add-accom.html')
+
+def my_accoms(request):
+    return render(request, 'unistay/my-accoms.html')
+
+def my_profile(request):
+    return render(request, 'unistay/my-profile.html')
 
 def signup(request):
     if request.method == 'POST':

@@ -1,0 +1,61 @@
+{% extends 'unistay/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <main>
+      <div class="container-fluid seperator"></div>
+
+      <div class="container-fluid review-page">
+          <div class="row">
+            <div class="col">
+              <div class="row contact-top" id="faq-left">
+                <div id="prof-box" class="contact-box review-box">
+                  <div class="review-lt container-fluid">
+                    <div class="review-ltl">
+                      <img class="prof-img" src="{% static 'unistay/img/default-profile-img.png' %}" alt="">
+                    </div>
+                    <div class="review-ltr container-fluid">
+                        <h2 class="prof-details">Email Address</h2>
+                        <h2 class="prof-details">Location </h2>
+                        <h2 class="prof-details">Phone </h2>
+                    </div>
+                  </div>
+                  <div class="my-profile-bottom ">
+                    <div class="my-profile-box">
+                      <div id="profbutton-1" class="container-fluid button-holder-profile">
+                        <button type="button" class="btn btn-lg btn-primary" id="profbutton-t"> Profile Overview </button>
+                        <button type="button" class="btn btn-lg btn-primary" id="profbutton-b"> My Reviews </button>
+                      </div>
+
+
+
+
+                  </div>
+                  </div>
+                </div>
+
+                >
+              </div>
+            </div>
+            <div class="col" id="review-right-col">
+              <div class="row write-review-title" id="faq-left">
+
+                <div><h1 class="">Recent Reviews</h1>
+                </div>
+                <div class="review container-fluid" id="review1">
+                    review1
+                </div>
+                <div class="review container-fluid" id="review1">
+                    review2
+                </div>
+
+               
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </main>
+    {% endblock content %}

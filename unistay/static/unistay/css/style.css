@@ -30,17 +30,6 @@ default : 1
 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
 
 */
-/* Increase padding within the modal content */
-.modal-content {
-  padding: 2rem;
-}
-
-/* Increase padding for different screen sizes */
-@media (min-width: 576px) {
-  .modal-content {
-      padding: 3rem; /* Larger padding for larger screens */
-  }
-}
 
 * {
   margin: 0;
@@ -103,6 +92,192 @@ body {
 .login-form-label {
   font-size: 2rem;
   margin-top: 2rem;
+}
+.search-arrange{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.entry {
+  width: 50rem;
+  height: 15rem;
+  border: 1px solid red;
+}
+
+.entries {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#business-name {
+  height: 10rem;
+  color: black;
+  margin-top: 2rem;
+  margin-bottom: -2rem;
+}
+.centerer {
+  display: flex;
+  justify-content: center;
+}
+
+.table-div {
+  margin: 3rem;
+}
+
+.operation-div {
+  display: flex;
+  justify-content: space-around
+}
+
+.operation-button {
+  border-radius: 1rem;
+  width: 40%;
+  height: 2.5rem;
+  background-color: blue;
+  color: white;
+  font-weight: bolder;
+}
+
+.save-div {
+  display: flex;
+  justify-content: end;
+}
+.save-button {
+  height: 3rem;
+  width: 10rem;
+  margin-top: 1rem;
+}
+
+.property-type-div {
+  display: flex;
+  justify-content: center;
+}
+#ptbutton-l {
+background: url('../img/svgs/home-outline.svg');
+background-repeat: no-repeat;
+width: 20%;
+height: 5rem;
+color: black;
+text-align: end;
+padding-right: 2rem;
+margin-right: 7rem;
+font-size: 2rem;
+font-weight: bold;
+outline: none;
+
+}
+#ptbutton-l:focus {
+  outline: none;
+}
+
+#profbutton-t {
+height: 5rem;
+text-align: center;
+padding-right: 2rem;
+margin-right: 7rem;
+font-size: 2rem;
+font-weight: bold;
+outline: none;
+width: 60%;
+}
+#profbutton-t:focus {
+  outline: none;
+}
+
+.deselected {
+  opacity: 0.5;
+}
+
+.form-div {
+  display: flex;
+  justify-content: center;
+}
+
+.dropdowns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#add-property-form {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.add-property-input {
+  height: 4rem;
+}
+.add-property-label {
+  font-size: 2rem;
+  font-weight: bolder;
+  margin-top: 2rem;
+}
+
+#bathroom-type {
+  margin-top: 1rem;
+  width: 100%;
+}
+.bathroom-label {
+  display: flex;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+.select-div {
+  display: flex;
+  justify-content: center;
+}
+
+input[type=text], select, input[type=number] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+select {
+  margin-top: 0rem;
+}
+
+#ptbutton-r {
+  background: url('../img/svgs/business-outline.svg');
+  background-repeat: no-repeat;
+  width: 20%;
+  color: black;
+  text-align: center;
+  padding-right: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: end;
+  }
+
+  #profbutton-b {
+    text-align: center;
+    padding-right: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+    width: 60%;
+  }
+
+#search-form-div {
+  flex-direction: row;
+  display: flex;
+  margin-left: 4rem;
+}
+#search-form {
+  flex-direction: row;
+  display: flex;
+}
+
+#searchInput {
+  width: 100%;
 }
 
 #emailInput,
@@ -235,7 +410,152 @@ body {
 
 #faq-left {
   display: flex;
+  text-align: center;
+}
+
+.review-page {
+  display: flex;
+  justify-content: space-between;
+}
+#review-right-col {
+  flex-grow: 0.3;
+}
+
+.review-lt {
+  display: flex;
+  flex-direction: row;
   justify-content: start;
+  width: 100%;
+  padding-bottom: 3rem;
+  margin-top: 2rem;
+  text-align: start;
+  padding-left: 4rem;
+}
+.review-lb {
+  margin-bottom: 3rem;
+}
+
+#formControlTextarea1 {
+  font-size: 1.5rem;
+  height: 20rem;
+}
+
+#review-right {
+  display: flex;
+}
+
+
+#write-review-title {
+  color: black;
+  font-size: 3rem;
+  margin-top: 3rem;
+}
+
+.review-box {
+width: 100%;
+}
+
+.review-ltr {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.input-group {
+  height: 5rem;
+}
+
+.rating{
+  display: flex;
+  
+}
+
+.rating input{
+  position: absolute;
+  left: -100vw;
+}
+
+.rating label{
+  width: 48px;
+  height: 48px;
+  padding: 48px 0 0;
+  overflow: hidden;
+  background: url(../img/svgs/stars.svg) no-repeat top left;
+}
+
+
+.rating:not(:hover) input:indeterminate + label,
+.rating:not(:hover) input:checked ~ input + label,
+.rating input:hover ~ input + label{
+  background-position : -48px 0;
+}
+
+.rating:not(:hover) input:focus-visible + label{
+  background-position : -96px 0;
+}
+
+.spacer {
+  padding: 2rem;
+}
+
+.prof-img {
+height: 10rem;
+}
+
+.prof-details {
+  color: lightslategray;
+}
+
+
+#prof-box {
+  border: none;
+}
+.review-box {
+  border: 2px solid #007bff;
+  margin: 2rem;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  border-radius: 1rem;
+}
+
+.button-holder-profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#profbutton-1 {
+  margin-left: 2.8rem;
+}
+
+.my-profile-box {
+  border: 2px solid #007bff;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+}
+.write-review-title {
+  display: flex;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.review {
+  border: 1px solid red;
+  height: 10rem;
+  width: 40rem;
+}
+
+#review1 {
+  width: 40rem;
+}
+
+.review-photo-holder {
+  height: 10rem;
 }
 
 .btn {
@@ -250,6 +570,22 @@ body {
 #faq-btn {
   margin-top: 2rem;
   background-color: #1971c2;
+}
+
+#review-btn {
+  background-color: #1971c2;
+  justify-self: start;
+  margin-top: 1rem;
+  margin-left: -1rem;
+  width: 11rem;
+  font-size: 1.5rem;
+}
+
+.review-btn-div {
+  display: flex;
+  justify-content: start;
+  margin: 1rem;
+  height: 8rem;
 }
 
 .about-title-box {
