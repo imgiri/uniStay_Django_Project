@@ -1,0 +1,61 @@
+{% load static %} 
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Sign Up</title>
+      <!-- Bootstrap CSS -->
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Custom Styles -->
+      <link href="{% static 'css/signup-page.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#signupModal">
+          Sign Up
+      </button>
+      
+      <!-- The Modal -->
+      <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <!-- Modal Body -->
+                  <div class="modal-body text-center">
+                      <!-- Close button -->
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                      <!-- Logo image -->
+                      <img src="{% static 'unistay/img/unistay-logo.png' %}" alt="Logo" style="width: 200px;">
+                      <h2 class="mt-3" id="signupModalLabel">Create your account</h2>
+                      <!-- Sign Up Form -->
+                      <form method="post" action="{% url 'signup' %}">
+                          {% csrf_token %}
+                          <div class="form-group">
+                              <input type="email" name="email" class="form-control" id="email" placeholder="Email address" required>
+                          </div>
+                          <button type="submit" class="btn btn-primary btn-block">Continue</button>
+                          <div class="text-center mt-3 mb-3">
+                              Already have an account? <a href="{% url 'personal_login' %}">Log in</a>
+                          </div>
+                          <hr>
+                          <p class="text-center">OR</p>
+                          <button type="button" class="btn btn-outline-secondary btn-block">Continue with Google</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <!-- Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  </body>
+</html>

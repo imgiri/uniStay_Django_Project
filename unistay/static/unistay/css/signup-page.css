@@ -1,0 +1,106 @@
+  /* Increase padding within the modal content */
+   .modal-content {
+       padding: 2rem; /* Adjust the padding value to your preference */
+   }
+
+/* Optionally, if you want to increase padding for different screen sizes */
+   @media (min-width: 576px) {
+       .modal-content {
+           padding: 3rem; /* Larger padding for larger screens */
+       }
+   }
+
+   /* Custom Modal Styling */
+.modal-content {
+   border-radius: 0.5rem; /* Gives the modal rounded corners */
+}
+
+.modal-body {
+   padding: 2rem; /* Sets the padding inside the modal */
+}
+
+.close {
+   position: absolute;
+   top: 1rem;
+   right: 1rem;
+   font-size: 2rem; /* Makes the close button larger */
+}
+
+.modal-body img {
+   margin-bottom: 1rem; /* Adds space below the logo */
+}
+
+.modal-body h1 {
+   font-size: 2rem; /* Larger text for the title */
+   font-weight: bold; /* Makes the font bold */
+   margin-bottom: 1.5rem; /* Adds space below the title */
+}
+
+/* Style the form input */
+.modal-body .form-control {
+   border: 1px solid #ced4da; /* Gives a specific border color */
+   margin-bottom: 1rem; /* Adds space below the input field */
+   height: 3rem; /* Sets a fixed height for the input */
+   font-size: 1rem; /* Sets the font size */
+}
+
+/* Style the primary button */
+.modal-body .btn-primary {
+   background-color: #007bff; /* Bootstrap primary color */
+   border-color: #007bff; /* Border color to match */
+   padding: 0.75rem 1rem; /* Padding for the button */
+   font-size: 1rem; /* Font size for button text */
+}
+
+/* Style the secondary button */
+.modal-body .btn-outline-secondary {
+   border: 1px solid #ced4da; /* Border color to match the input */
+   margin-bottom: 1rem; /* Adds space below the button */
+   padding: 0.75rem 1rem; /* Padding for the button */
+   font-size: 1rem; /* Font size for button text */
+}
+
+/* Text "OR" separator styling */
+.modal-body hr {
+   border-top: 1px solid #ced4da; /* Gives a specific color to the horizontal rule */
+   margin-top: 2rem; /* Adds space above the horizontal rule */
+   margin-bottom: 2rem; /* Adds space below the horizontal rule */
+}
+
+/* Link styling */
+.modal-body a {
+   color: #007bff; /* Sets the color for links */
+   text-decoration: none; /* Removes underline from links */
+}
+
+.modal-body a:hover {
+   text-decoration: underline; /* Adds underline on hover for links */
+}
+
+/* Bottom margin for the last button if needed */
+.modal-body form button:last-child {
+   margin-bottom: 1rem;
+}
+
+/* Style for login link */
+.modal-body .text-center a {
+   display: inline-block; /* Allows margin to be applied properly */
+   margin-top: 0.5rem; /* Space above the log in link */
+   font-weight: normal; /* Overrides Bootstrap's bold styling */
+}
+
+/* Ensures the modal is centered vertically and horizontally */
+.modal-dialog {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   min-height: calc(100% - (1.75rem * 2)); /* Minus top and bottom margins */
+}
+
+/* Ensures the modal is not too wide on small screens */
+@media (max-width: 576px) {
+   .modal-dialog {
+       width: auto;
+       margin: 1.75rem;
+   }
+}

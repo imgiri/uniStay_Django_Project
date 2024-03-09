@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from .forms import CustomUserCreationForm 
 from .forms import ReviewForm
 
 # Create your views here.
@@ -25,3 +26,13 @@ def contact_us(request):
 
 def personal_login(request):
     return render(request, 'unistay/personal-login.html')
+
+def signup(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login') 
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'unistay/signup.html', {'form': form})

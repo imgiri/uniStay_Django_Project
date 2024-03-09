@@ -30,6 +30,17 @@ default : 1
 2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
 
 */
+/* Increase padding within the modal content */
+.modal-content {
+  padding: 2rem;
+}
+
+/* Increase padding for different screen sizes */
+@media (min-width: 576px) {
+  .modal-content {
+      padding: 3rem; /* Larger padding for larger screens */
+  }
+}
 
 * {
   margin: 0;
