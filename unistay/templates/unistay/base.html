@@ -25,7 +25,9 @@
     <script type="text/javascript">
       var registerUrl = "{% url 'register' %}"; //registration url
       var loginUrl = "{% url 'personal_login' %}"; // redirect url post registration
-      var loginModalUrl = "{% url 'modal_login' %}"
+      var loginModalUrl = "{% url 'modal_login' %}";
+      var logoutUserUrl = "{% url 'logout_user' %}";
+      var indexUrl = "{% url 'index' %}";
     </script>
 
     <script src="{% static 'unistay/js/signup.js' %}"></script>
@@ -180,7 +182,7 @@
           <li class="nav-item logged-out"><a  href="#" data-toggle="modal" data-target="#loginModal" class="nav-link nav-btn">Login</a></li>
           <li class="nav-item logged-out "><a href="#" data-toggle="modal" data-target="#signupModal" class="nav-link nav-btn ">Sign Up</a></li>
           <li class="nav-item logged-in d-none"><a href="#" class="nav-link nav-btn">My Profile</a></li>
-          <li class="nav-item logged-in d-none"><a href="#" class="nav-link nav-btn">Logout</a></li>
+          <li id= "logoutButton" class="nav-item logged-in d-none"><a href="#" class="nav-link nav-btn">Logout</a></li>
 
         </ul>
       </nav>

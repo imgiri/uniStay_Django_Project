@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm 
 from django.contrib.auth import login
+from django.contrib.auth import logout
 from .forms import ReviewForm
 from django.contrib.auth.models import User
 from django.http import JsonResponse
@@ -122,3 +123,7 @@ def modal_login_view(request):
     else:
         # If credentials are incorrect
         return JsonResponse({'success': False, 'error': 'Invalid credentials.'})
+
+def logout_user(request):
+    logout(request)
+    return JsonResponse({'success': True, 'message': 'You have been logged out.'})

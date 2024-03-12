@@ -1,4 +1,28 @@
  $(document).ready(function() {
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+            }
+        }
+    });
+
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    
+
     $('#signupForm').submit(function(e) {
         e.preventDefault();
 
@@ -54,6 +78,38 @@
             error: function(xhr, errmsg, err) {
                 // handle error
                 alert('Error: ' + errmsg);
+            }
+        });
+    });
+
+    $('#logoutButton').click(function(event) {
+        console.log("logout");
+        event.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: logoutUserUrl,
+            /*data: {
+                'csrfmiddlewaretoken': $('input[name="csrfmiddlewaretoken"]').val()
+            },*/
+            dataType: 'json',
+            success: function(response) {
+                if (response.success) {
+                    alert(response.message);
+                    /*// Hide logout and profile buttons
+                    $('#logoutButton').hide();
+                    $('#profileButton').hide();
+                    // Show login and signup buttons
+                    $('#loginButton').show();
+                    $('#signupButton').show();*/
+                    
+                    $('.logged-out').removeClass('d-none'); // This hides elements
+                    $('.logged-in').addClass('d-none'); // This shows elements
+
+                    // Redirect to the homepage after a delay
+                    setTimeout(function() {
+                        window.location.href = indexUrl;
+                    }, 2000);  // Redirect after 2 seconds
+                }
             }
         });
     });
