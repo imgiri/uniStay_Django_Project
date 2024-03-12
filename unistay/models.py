@@ -5,18 +5,20 @@ from django.utils import timezone
 # User model is already provided by Django, extend it using a OneToOneField if needed.
 
 class UserProfile(models.Model):
-    # Link UserProfile to Django's User model
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    user_type = models.CharField(max_length=20, choices=[('individual', 'Individual'), ('business', 'Business')])
+    user_type = models.CharField(max_length=20, choices=[('individual', 'Individual'), ('business', 'Business')], default='individual')
+
+    def __str__(self):
+        return self.user.username
 
 class IndividualUser(models.Model):
-    # Link to UserProfile instead of User directly
+
     user_profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
     student_id = models.IntegerField()
     year = models.IntegerField()
 
 class BusinessUser(models.Model):
-    # Link to UserProfile instead of User directly
+
     user_profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
     business_name = models.CharField(max_length=255)
     business_type = models.CharField(max_length=255)
