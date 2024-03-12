@@ -27,6 +27,7 @@
     <script type="text/javascript">
       var registerUrl = "{% url 'register' %}"; //registration url
       var loginUrl = "{% url 'personal_login' %}"; // redirect url post registration
+      var loginModalUrl = "{% url 'modal_login' %}"
     </script>
 
     <script src="{% static 'unistay/js/signup.js' %}"></script>
@@ -270,7 +271,6 @@
                 
               </div>
               
-
               <button type="submit" class="btn btn-primary Login">Login</button>
             </form>
 

@@ -25,4 +25,33 @@
         }
         });
     });
+
+    $('#loginForm').submit(function(event) {
+        event.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: loginModalUrl, // Update with the correct URL path
+            data: {
+                email: $('#loginForm input[name="email"]').val(),
+                password: $('#loginForm input[name="password"]').val(),
+                csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val()
+            },
+            dataType: 'json',
+            success: function(response) {
+                if (response.success) {
+                    // Login success
+                    // Redirect or close modal and update UI as needed
+                    $('#loginModal').modal('hide');
+                } else {
+                    // Login failed
+                    // Display error message to the user
+                    alert(response.error);
+                }
+            },
+            error: function(xhr, errmsg, err) {
+                // handle error
+                alert('Error: ' + errmsg);
+            }
+        });
+    });
 });

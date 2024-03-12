@@ -5,6 +5,9 @@ from .forms import ReviewForm
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth import authenticate, login
+from django.views.decorators.http import require_http_methods
+
 
 # Create your views here.
 
@@ -102,3 +105,20 @@ def register(request):
             return JsonResponse({'error': str(e)}, status=400)
 
     return JsonResponse({'error': 'Invalid request'}, status=400)
+
+
+@require_http_methods(["POST"])
+def modal_login_view(request):
+    # Get credentials from POST request
+    email = request.POST.get('email')
+    password = request.POST.get('password')
+
+    # Authenticate the user
+    user = authenticate(request, username=email, password=password)
+    if user is not None:
+        # If credentials are correct, login the user
+        login(request, user)
+        return JsonResponse({'success': True})
+    else:
+        # If credentials are incorrect
+        return JsonResponse({'success': False, 'error': 'Invalid credentials.'})
