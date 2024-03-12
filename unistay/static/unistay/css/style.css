@@ -50,10 +50,6 @@ body {
   color: #555;
 }
 
-.logged-in {
-  display: none;
-}
-
 #about-us-hero-text {
   justify-content: center;
   display: flex;
