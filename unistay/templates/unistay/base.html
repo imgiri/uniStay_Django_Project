@@ -109,7 +109,9 @@
   
   <body>
     <header class="header">
-      <img src="{% static 'unistay/img/unistay-logo.png' %}" alt="UniStay Logo" class="logo" />
+      <a href="{% url 'index' %}">
+        <img src="{% static 'unistay/img/unistay-logo.png' %}" alt="UniStay Logo" class="logo" />
+      </a>
 
       <nav class="main-nav">
         <ul class="nav-list">
