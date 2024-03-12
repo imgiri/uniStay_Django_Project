@@ -12,7 +12,7 @@ class ReviewForm(forms.Form):
     photos = forms.ImageField(widget=forms.ClearableFileInput(attrs={"allow_multiple_selected": True}), required=False, label='Attach Photos')
 
 
-class CustomUserCreationForm(UserCreationForm):
+"""class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True)
 
     class Meta:
@@ -24,6 +24,18 @@ class CustomUserCreationForm(UserCreationForm):
         user.email = self.cleaned_data["email"]
         if commit:
             user.save()
-        return user
+        return user"""
+    
+class CustomUserCreationForm(UserCreationForm):
+    first_name = forms.CharField(max_length=30, required=True)
+    last_name = forms.CharField(max_length=30, required=True)
+    email = forms.EmailField(max_length=254, required=True)
+    zip_code = forms.CharField(max_length=10, required=True)
+    birthday = forms.DateField(required=False)
+    marketing_opt_in = forms.BooleanField(required=True)
+
+    class Meta(UserCreationForm.Meta):
+        model = User
+        fields = UserCreationForm.Meta.fields + ('first_name', 'last_name', 'email', 'zip_code', 'birthday', 'marketing_opt_in')
 
     

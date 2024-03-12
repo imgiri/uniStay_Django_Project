@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm 
+from django.contrib.auth import login
 from .forms import ReviewForm
+from django.contrib.auth.models import User
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_protect
 
 # Create your views here.
 
@@ -39,7 +43,7 @@ def my_accoms(request):
 def my_profile(request):
     return render(request, 'unistay/my-profile.html')
 
-def signup(request):
+"""def signup(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
@@ -47,4 +51,51 @@ def signup(request):
             return redirect('login') 
     else:
         form = CustomUserCreationForm()
+    return render(request, 'unistay/signup.html', {'form': form})"""
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.email = form.cleaned_data['email']
+            user.first_name = form.cleaned_data['first_name']
+            user.last_name = form.cleaned_data['last_name']
+            user.save()
+            # Handle the marketing opt-in and birthday fields as needed
+            # ...
+            login(request, user)
+            return redirect('index')  # Redirect to the homepage or other appropriate page
+    else:
+        form = CustomUserCreationForm()
     return render(request, 'unistay/signup.html', {'form': form})
+
+
+@csrf_protect
+def register(request):
+    if request.method == 'POST':
+        # Extract form data
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        password = request.POST['password']
+        marketing_emails = request.POST.get('marketing_emails', False)
+
+        # Create user logic here
+        try:
+            user = User.objects.create_user(
+                username=email,
+                email=email,
+                password=password,
+                first_name=first_name,
+                last_name=last_name
+            )
+            user.save()
+            # If you have a user profile or additional settings for marketing_emails, handle them here
+            
+            return JsonResponse({'status': 'success'}, status=200)
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=400)
+
+    return JsonResponse({'error': 'Invalid request'}, status=400)
