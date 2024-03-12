@@ -1,21 +1,20 @@
- 
-$(document).ready(function() {
+ $(document).ready(function() {
     $('#signupForm').submit(function(e) {
         e.preventDefault();
 
         $.ajax({
         type: 'POST',
-        url: '{% url "register" %}',  // Ensure you have a URL named 'register' in your urls.py
+        url: registerUrl,
         data: $(this).serialize(),
         success: function(response) {
             if(response.status === 'success') {
             //Close the modal and clear the form or redirect the user
             $('#signupModal').modal('hide');
-            // Optionally, clear the form fields
+            // clear the form fields
             $('#signupForm')[0].reset();
             alert('Signup success: ' + response);
-            // If you want to redirect the user
-            window.location.href = "{% url 'personal_login' %}";
+            //redirect the user
+            window.location.href = loginUrl;
             } else {
             // Handle failure
             alert('Signup failed: ' + response.error);

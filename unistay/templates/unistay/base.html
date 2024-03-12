@@ -24,41 +24,13 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     
-    <!--js file of signup modal-->
-    <script>
-       
-      $(document).ready(function() {
-        $('#signupForm').submit(function(e) {
-            e.preventDefault();
-
-            $.ajax({
-            type: 'POST',
-            url: '{% url "register" %}',  // Ensure you have a URL named 'register' in your urls.py
-            data: $(this).serialize(),
-            success: function(response) {
-                if(response.status === 'success') {
-                //Close the modal and clear the form or redirect the user
-                $('#signupModal').modal('hide');
-                // Optionally, clear the form fields
-                $('#signupForm')[0].reset();
-                alert('Signup success: ' + response);
-                // If you want to redirect the user
-                window.location.href = "{% url 'personal_login' %}";
-                } else {
-                // Handle failure
-                alert('Signup failed: ' + response.error);
-                }
-            },
-            error: function(xhr, errmsg, err) {
-                alert('Ajax error: ' + errmsg);
-            }
-            });
-        });
-      });
-
+    <script type="text/javascript">
+      var registerUrl = "{% url 'register' %}"; //registration url
+      var loginUrl = "{% url 'personal_login' %}"; // redirect url post registration
     </script>
 
-  
+    <script src="{% static 'unistay/js/signup.js' %}"></script>
+
   <style>
     /*modal signup*/      
     #signupModal .modal-content {
