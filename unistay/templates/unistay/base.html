@@ -14,9 +14,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="{% static 'unistay/css/style.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/queries.css' %}" />
-    
+    <link rel="stylesheet" href="{% static 'unistay/css/style.css' %}" />    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -180,8 +178,11 @@
           <li><a href="{% url 'write_review' %}" class="nav-link">Write A Review</a></li>
           <li><a href="./business-login.html" class="nav-link">Business</a></li>
           <li><a href="{% url 'faq' %}" class="nav-link">FAQ</a></li>
-          <li><a  href="#" data-toggle="modal" data-target="#loginModal" class="nav-link nav-btn">Login</a></li>
-          <li><a href="#" data-toggle="modal" data-target="#signupModal" class="nav-link nav-btn">Sign Up</a></li>
+          <li class="nav-item logged-out"><a  href="#" data-toggle="modal" data-target="#loginModal" class="nav-link nav-btn">Login</a></li>
+          <li class="nav-item logged-out"><a href="#" data-toggle="modal" data-target="#signupModal" class="nav-link nav-btn ">Sign Up</a></li>
+          <li class="nav-item logged-in  d-none" ><a href="#" class="nav-link nav-btn">My Profile</a></li>
+          <li class="nav-item logged-in  d-none"><a href="#" class="nav-link nav-btn">Logout</a></li>
+
         </ul>
       </nav>
     </header>

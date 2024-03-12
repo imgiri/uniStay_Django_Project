@@ -42,6 +42,9 @@
                     // Login success
                     // Redirect or close modal and update UI as needed
                     $('#loginModal').modal('hide');
+                    console.log('success');
+                    $('.logged-out').addClass('d-none'); // This hides elements
+                    $('.logged-in').removeClass('d-none'); // This shows elements
                 } else {
                     // Login failed
                     // Display error message to the user

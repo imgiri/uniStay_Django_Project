@@ -8,9 +8,6 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     user_type = models.CharField(max_length=20, choices=[('individual', 'Individual'), ('business', 'Business')], default='individual')
 
-    def __str__(self):
-        return self.user.username
-
 class IndividualUser(models.Model):
 
     user_profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
