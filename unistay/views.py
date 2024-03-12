@@ -43,6 +43,9 @@ def my_accoms(request):
 def my_profile(request):
     return render(request, 'unistay/my-profile.html')
 
+def faq(request):
+    return render(request, 'unistay/faq.html')
+
 """def signup(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)

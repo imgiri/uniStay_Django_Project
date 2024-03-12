@@ -1,4 +1,5 @@
 $(document).ready(function() {
+   
     $('.signup-link').click(function(event) {
         event.preventDefault();
         $('#loginModal').modal('hide');
@@ -17,12 +18,6 @@ $(document).ready(function() {
 
     $('#loginModal').on('hidden.bs.modal', function (e) {
         $('#signUpModal').modal('show');
-    });
-
-    $('.close').click(function(event) {
-        event.preventDefault();
-        $('#loginModal').modal('hide');
-        $('#signupModal').modal('hide');
-    });
+    }); 
 
 });
