@@ -11,11 +11,12 @@ urlpatterns = [
     path('search-results/', views.search_results, name='search_results'),
     path('add-accom/', views.add_accom, name='add_accom'),
     path('my-accoms/', views.my_accoms, name='my_accoms'),
-    path('my-profile/', views.my_profile, name='my_profile'),
+    #path('my-profile/', views.my_profile, name='my_profile'),
     path('register/', views.register, name='register'),
     path('frequently-asked-questions/', views.faq, name='faq'),
     path('modal_login/', views.modal_login_view, name='modal_login'),
     path('logout_user/', views.logout_user, name='logout_user'),
+    path('profile/', views.view_profile, name='view_profile'),
 ]
 
 
