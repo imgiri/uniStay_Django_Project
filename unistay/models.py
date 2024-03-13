@@ -28,7 +28,11 @@ class Accommodation(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     facilities = models.TextField()
-    accommodation_type = models.CharField(max_length=20, choices=[('university', 'University'), ('private', 'Private')])
+    type = models.CharField(max_length=20, choices=[('university', 'University'), ('private', 'Private')])
+    bedrooms = models.IntegerField(default=1)
+    budget = models.IntegerField(default=200)
+    bathroom_type = models.IntegerField(default=1)
+
 
 class Review(models.Model):
     user = models.ForeignKey(IndividualUser, on_delete=models.CASCADE)

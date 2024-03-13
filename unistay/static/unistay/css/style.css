@@ -50,6 +50,31 @@ body {
   color: #555;
 }
 
+/* Search container */
+.search-container {
+  display: flex;
+  margin-top: 20px;
+}
+
+/* Individual search result item */
+.search-item {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 30px; 
+  padding: 20px; 
+  background-color: white;
+  width: 125%; 
+  box-sizing: border-box;
+  font-size: 22px;
+  
+}
+
+/* Heading within search item */
+.search-item h3 {
+  margin-top: 0;
+  font-size: 32px;
+}
+
 #about-us-hero-text {
   justify-content: center;
   display: flex;

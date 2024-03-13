@@ -9,6 +9,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import authenticate
 from django.views.decorators.http import require_http_methods
 from django.contrib.auth.decorators import login_required
+from .models import Accommodation
 
 
 
@@ -130,3 +131,28 @@ def modal_login_view(request):
 def logout_user(request):
     logout(request)
     return JsonResponse({'success': True, 'message': 'You have been logged out.'})
+
+
+def accommodation_list(request):
+    # Get filter values from the request
+    type_filter = request.GET.get('type')
+    bedrooms_filter = request.GET.get('bedrooms')
+    budget_filter = request.GET.get('budget')
+    bathroom_type_filter = request.GET.get('bathroom_type')
+    
+    # Start with all records
+    accommodations = Accommodation.objects.all()
+
+    # Apply filters if present
+    """if type_filter:
+        accommodations = accommodations.filter(type=type_filter)
+    if bedrooms_filter:
+        accommodations = accommodations.filter(bedrooms=bedrooms_filter)
+    if budget_filter:
+        accommodations = accommodations.filter(budget__lte=budget_filter)
+    if bathroom_type_filter:
+        accommodations = accommodations.filter(bathroom_type=bathroom_type_filter)"""
+    
+    # Render the filtered queryset to a template
+    return render(request, 'unistay/accommodation-list.html', {'accommodations': accommodations})
+

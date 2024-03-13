@@ -51,79 +51,77 @@
       </section>
 
       <section class="section-cta">
-        <div class="container">
-            <div class="cta-items">
+          <div class="container">
+              <div class="cta-items">
 
-                <div class="cta-text-box">
-                    <h2 class="heading-secondary margin-bottom">
-                        Filter your search:
-                    </h2>
+                  <div class="cta-text-box">
+                      <h2 class="heading-secondary margin-bottom">
+                          Filter your search:
+                      </h2>
+                      <form class="cta-form" action="{% url 'accommodation_list' %}" method="get">
+                          
+                          <div class="type-box">
 
-                    <form class="cta-form">
-                        
-                        <div class="type-box">
+                              <label for="type">Type</label>
+                              <select id="type" name="type" required>
+                                  <option value="">Please choose one option</option>
+                                  <option value="Single Property">Single Property</option>
+                                  <option value="Property Block">Property Block</option>
+                              </select>
+                  
+                          </div>
 
-                            <label for="type">Type</label>
-                            <select id="type" required>
-                                <option value="">Please choose one option</option>
-                                <option value="Single-Property">Single Property</option>
-                                <option value="Property-Block">Property Block</option>
-                            </select>
-                
-                        </div>
+                          <div class="price-box">
+                              
+                              <label for="price">What is your budget?</label>
+                              <select id="price" name="budget" required>
+                                  <option value="">Please choose one option</option>
+                                  <option value="500">Under 500 per month</option>
+                                  <option value="750">Between 500-750 per month</option>
+                                  <option value="1000">1000+ per month</option>
+                              </select>
+                              
+                          </div>
 
-                        <div class="price-box">
-                            
-                            <label for="price">What is your budget?</label>
-                            <select id="price" required>
-                                <option value="">Please choose one option</option>
-                                <option value="'Under-500">Under 500 per month</option>
-                                <option value="Under-750">Between 500-750 per month</option>
-                                <option value="1000-Higher">1000+ per month</option>
-                            </select>
-                            
-                        </div>
+                          <div class="source">
 
-                        <div class="source">
+                              <label for="bedroom-amount">How many bedrooms?</label>
+                              <select id="bedroom-amount" name="bedrooms" required>
 
-                            <label for="bedroom-amount">How many bedrooms?</label>
-                            <select id="bedroom-amount" required>
+                                  <option value="">Please choose one option</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                  <option value="3">3</option>
+                                  <option value="4">4</option>
+                                  <option value="5+">5+</option>
+                              </select>
+                          </div>
 
-                                <option value="">Please choose one option</option>
-                                <option value="1-bedroom">1</option>
-                                <option value="2-bedroom">2</option>
-                                <option value="3-bedroom">3</option>
-                                <option value="4-bedroom">4</option>
-                                <option value="5+-bedroom">5+</option>
-                            </select>
-                        </div>
+                          <div class="bathrooms">
 
-                        <div class="bathrooms">
+                              <label for="bathroom-type">Preferred bathroom type?</label>
+                              <select id="bathroom-type" name="bathroom_type" required>
 
-                            <label for="bathroom-type">Preferred bathroom type?</label>
-                            <select id="bathroom-type" required>
+                                  <option value="">Please choose one option</option>
+                                  <option value="One">Singular bathroom</option>
+                                  <option value="ensuite">Ensuite bathroom</option>
+                                  <option value="Two">2 bathrooms</option>
+                              </select>
+                          </div>
 
-                                <option value="">Please choose one option</option>
-                                <option value="no-bathroom">No bathroom</option>
-                                <option value="1-bathroom">Singular bathroom</option>
-                                <option value="ensuite">Ensuite bathroom</option>
-                                <option value="2-bathrooms">2 bathrooms</option>
-                            </select>
-                        </div>
+                          <button type="submit" class="btn btn-primary">Search</button>
+                          
+                      </form>
 
-                        <button type="submit" class="btn btn--form">Search</button>
-                        
-                    </form>
+                  </div>
+                  
+                  <div class="cta-img-box" role="img" aria-label=filter-image></div>
+              </div>
 
-                </div>
-                
-                <div class="cta-img-box" role="img" aria-label=filter-image></div>
-            </div>
-
-            
-        </div>
+              
+          </div>
         </section>
-    </main>
+  </main>
 
 
 {% endblock content %}

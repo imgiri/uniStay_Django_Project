@@ -17,6 +17,8 @@ urlpatterns = [
     path('modal_login/', views.modal_login_view, name='modal_login'),
     path('logout_user/', views.logout_user, name='logout_user'),
     path('profile/', views.view_profile, name='view_profile'),
+    path('accommodation/', views.accommodation_list, name='accommodation_list'),
+
 ]
 
 
