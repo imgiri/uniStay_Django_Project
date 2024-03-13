@@ -1,0 +1,84 @@
+{% extends 'unistay/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <main>
+      <div class="container-fluid seperator"></div>
+
+      <div class="container-fluid review-page">
+          <div class="row">
+            <div class="col">
+              <div class="row contact-top" id="faq-left">
+                <h1 class="heading-primary" id="write-review-title">
+                  PlaceholderLocation
+                </h1>
+                <div class="contact-box review-box">
+                  <div class="review-lt container-fluid">
+                    <div class="review-ltl">
+                        <div class="rating">
+                            <input id="rating1" type="radio" name="rating" value="1">
+                            <label for="rating1">1</label>
+                            <input id="rating2" type="radio" name="rating" value="2">
+                            <label for="rating2">2</label>
+                            <input id="rating3" type="radio" name="rating" value="3">
+                            <label for="rating3">3</label>
+                            <input id="rating4" type="radio" name="rating" value="4">
+                            <label for="rating4">4</label>
+                            <input id="rating5" type="radio" name="rating" value="5">
+                            <label for="rating5">5</label>
+                          </div>
+                    </div>
+                    <div class="review-ltr">
+                        Select your rating
+                    </div>
+                  </div>
+                  <div class="review-lb container-fluid">
+                    <div class="form-group">
+                        <textarea aria-label="Describe Your Experience" class="form-control" id="formControlTextarea1" rows="3"></textarea>
+                      </div>
+                  <div class="spacer"></div>
+
+                  <h1 class="heading-primary" id="write-review-title">
+                    Attach Photos
+                  </h1>
+                  <div class="review-photo-holder">
+                    <div>
+                        <input aria-label="Upload Photographs Here" class="form-control form-control-lg" id="formFileLg" type="file">
+                      </div>
+                      <div class="review-btn-div">
+                      <button id="review-btn" class="btn btn-primary btn-lg" type="submit">Post Review</button>
+                      </div>
+
+                  </div>
+                  </div>
+                  </div>
+                </div>
+
+                >
+              </div>
+            </div>
+            <div class="col" id="review-right-col">
+              <div class="row write-review-title" id="faq-left">
+
+                <div><h1 class="">Recent Reviews</h1>
+                </div>
+                <div class="review container-fluid" id="review1">
+                    review1
+                </div>
+                <div class="review container-fluid" id="review1">
+                    review2
+                </div>
+
+               
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </main>
+    <div class="container-fluid seperator"></div>
+    {% endblock content %}
+
+

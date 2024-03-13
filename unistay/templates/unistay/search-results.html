@@ -1,0 +1,51 @@
+
+{% extends 'unistay/base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <main>
+      <div class="container-fluid seperator"></div>
+
+      <div class="container-fluid">
+
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <img src="{% static 'unistay/img/temp-map.png' %}" class="contact-us-img" alt="search results img">
+            </div>
+            <div class="col">
+              <div class="row contact-top">
+                <div class="search-arrange">
+                    <!-- <h1 class="heading-primary" id="about-us-right-title" >Contact Us</h1> -->
+
+                      <form id="search-form">
+                        <div class="form-group" id="search-form-div">
+                            <input aria-label="State" type="text" class="form-control form-control-lg" id="searchInput" placeholder="Glasgow....." />
+                        </div>
+                        <div class="form-group" id="search-form-div">
+                            <select aria-label="State" id="sort-by" class="form-control form-control-lg" required>
+                                <option value="" selected disabled hidden>Choose an option</option>
+                                <option value="rating">Rating</option>
+                                <option value="bathrooms">Bathrooms</option>
+                                <option value="price">Price</option>
+                                <option value="bedroom-amount">Bedroom Amount</option>
+                            </select>
+                            
+                        </div>
+                    </form>
+
+                </div>
+                <div class="entries">
+                    <div id="entry1" class="entry">Entry</div>
+                </div>
+            </div>
+          </div>
+
+      </div>
+
+  </main>
+  <div class="container-fluid seperator"></div>
+  {% endblock content %}
+
+

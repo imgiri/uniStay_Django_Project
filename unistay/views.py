@@ -6,10 +6,8 @@ from .forms import ReviewForm
 from django.contrib.auth.models import User
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_protect
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login
 from django.views.decorators.http import require_http_methods
-from django.contrib.auth.decorators import login_required
-
 
 
 # Create your views here.
@@ -46,9 +44,8 @@ def add_accom(request):
 def my_accoms(request):
     return render(request, 'unistay/my-accoms.html')
 
-@login_required  # This decorator ensures only logged-in users can access the profile
-def view_profile(request):
-    return render(request, 'unistay/my-profile.html', {'user': request.user})
+def my_profile(request):
+    return render(request, 'unistay/my-profile.html')
 
 def faq(request):
     return render(request, 'unistay/faq.html')
