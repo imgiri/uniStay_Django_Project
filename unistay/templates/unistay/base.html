@@ -28,6 +28,7 @@
       var loginModalUrl = "{% url 'modal_login' %}";
       var logoutUserUrl = "{% url 'logout_user' %}";
       var indexUrl = "{% url 'index' %}";
+      var writeReviewButton = "{% url 'write_a_review' %}"; 
     </script>
 
     <script src="{% static 'unistay/js/signup.js' %}"></script>
@@ -177,7 +178,7 @@
 
       <nav class="main-nav">
         <ul class="nav-list">
-          <li><a href="{% url 'write_review' %}" class="nav-link">Write A Review</a></li>
+          <li id= "writeReviewButton" ><a href="{% url 'write_review' %}" class="nav-link">Write A Review</a></li>
           <li><a href="{% url 'faq' %}" class="nav-link">FAQ</a></li>
 
           <li id="profileButton" class="nav-item logged-in d-none"><a href="{% url 'view_profile' %}" class="nav-link nav-btn">My Profile</a></li>

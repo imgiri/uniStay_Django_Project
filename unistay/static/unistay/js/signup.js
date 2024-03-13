@@ -113,4 +113,24 @@
             }
         });
     });
+
+    /*$('#writeReviewButton').click(function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: writeReviewButton,  // Update this with the correct path
+            method: 'POST',  // or 'POST' depending on your implementation
+            success: function(data) {
+                console.log('over here')
+                // Logic to open the review form or proceed as normal
+            },
+            error: function(xhr, status, error) {
+                if (xhr.status == 403 && xhr.responseJSON.login_required) {
+                    $('#loginModal').modal('show');  // Show the login modal
+                } else {
+                    // Handle other errors
+                }
+            }
+        });
+    });*/
+
 });

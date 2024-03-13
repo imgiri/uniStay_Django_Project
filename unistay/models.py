@@ -11,8 +11,8 @@ class UserProfile(models.Model):
 class IndividualUser(models.Model):
 
     user_profile = models.OneToOneField(UserProfile, on_delete=models.CASCADE)
-    student_id = models.IntegerField()
-    year = models.IntegerField()
+    student_id = models.IntegerField(default=0)
+    year = models.IntegerField(default=1)
 
 class BusinessUser(models.Model):
 

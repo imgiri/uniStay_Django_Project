@@ -3,13 +3,34 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from .models import Review, Accommodation
 
 
-class ReviewForm(forms.Form):
-    accommodation_name = forms.CharField(label='Accommodation Name', max_length=100)
-    rating = forms.ChoiceField(label='Select your rating', choices=[(x, x) for x in range(1, 6)])
-    review = forms.CharField(widget=forms.Textarea, label='Your Review')
-    photos = forms.ImageField(widget=forms.ClearableFileInput(attrs={"allow_multiple_selected": True}), required=False, label='Attach Photos')
+
+"""class ReviewForm(forms.ModelForm):
+    accommodation = forms.ModelChoiceField(
+        queryset=Accommodation.objects.all(),
+        label="Select Accommodation",
+        required=True
+    )
+
+    class Meta:
+        model = Review
+        fields = ['accommodation', 'rating', 'review']"""
+
+
+class ReviewForm(forms.ModelForm):
+    accommodation = forms.ModelChoiceField(
+        queryset=Accommodation.objects.all(),
+        empty_label="Select Accommodation",
+        label="Accommodation",
+        required=True
+    )
+
+    class Meta:
+        model = Review
+        fields = ['accommodation', 'rating', 'review']
+
 
 
 """class CustomUserCreationForm(UserCreationForm):

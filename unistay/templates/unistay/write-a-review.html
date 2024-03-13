@@ -1,0 +1,21 @@
+{% extends 'unistay/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<h2>Write a Review</h2>
+<form method="post" action="{% url 'write_a_review' %}">
+    {% csrf_token %}
+    <label for="id_accommodation">Accommodation:</label>
+    {{ form.accommodation }}
+    <label for="id_rating">Rating:</label>
+    {{ form.rating }}
+    <label for="id_review">Your Review:</label>
+    {{ form.review }}
+    <button type="submit">Submit Review</button>
+</form>
+
+
+{% endblock content %}
+

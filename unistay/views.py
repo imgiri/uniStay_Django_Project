@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import CustomUserCreationForm 
 from django.contrib.auth import login
 from django.contrib.auth import logout
@@ -10,6 +10,12 @@ from django.contrib.auth import authenticate
 from django.views.decorators.http import require_http_methods
 from django.contrib.auth.decorators import login_required
 from .models import Accommodation
+from .forms import ReviewForm
+from .models import Review, IndividualUser, UserProfile
+from functools import wraps
+from .decorators import login_required_ajax
+from django.utils import timezone
+
 
 
 
@@ -103,7 +109,6 @@ def register(request):
                 last_name=last_name
             )
             user.save()
-            # If you have a user profile or additional settings for marketing_emails, handle them here
             
             return JsonResponse({'status': 'success'}, status=200)
         except Exception as e:
@@ -155,4 +160,67 @@ def accommodation_list(request):
     
     # Render the filtered queryset to a template
     return render(request, 'unistay/accommodation-list.html', {'accommodations': accommodations})
+
+def write_review(request):
+    accommodations = Accommodation.objects.all()
+
+    context = {
+        'accommodations': accommodations,
+    }
+
+    if request.method == 'POST':
+        accommodation_id = request.POST.get('accommodation')
+        rating = request.POST.get('rating')
+        review = request.POST.get('review')
+
+        accommodation = get_object_or_404(Accommodation, id=accommodation_id)
+
+        # Check for UserProfile existence and create if necessary
+        user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+
+        # Now safely get or create the IndividualUser linked to that UserProfile
+        individual_user, created = IndividualUser.objects.get_or_create(user_profile=user_profile)
+
+
+        # Create a new Review instance and save it
+        review_instance = Review(
+            user=individual_user,
+            accommodation=accommodation,
+            rating=rating,
+            review=review,
+            date=timezone.now()  # Assuming you want to set the review date to now
+        )
+        
+        review_instance.save()
+    
+        # Redirect to a success page or the accommodation detail page
+        return redirect('index')  # Replace 'some_success_url' with your actual URL name
+
+    return render(request, 'unistay/write-review.html', context)
+
+"""def login_required_ajax(view_func):
+    @wraps(view_func)
+    def _wrapped_view(request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            if request.is_ajax():
+                return JsonResponse({'login_required': True}, status=403)
+            else:
+                return login_required(view_func)(request, *args, **kwargs)
+        return view_func(request, *args, **kwargs)
+    return _wrapped_view"""
+
+#@login_required_ajax
+def write_a_review(request):
+    """if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        console.log("inside here")
+        if form.is_valid():
+            new_review = form.save(commit=False)
+            new_review.user = request.user  # Set the user to the currently logged-in user
+            new_review.save()
+            return redirect('review_thank_you')  # Redirect to a thank-you page or similar
+    else:
+        form = ReviewForm()"""
+    
+    return render(request, 'unistay/write-a-review.html')
 

@@ -50,11 +50,11 @@ body {
   color: #555;
 }
 
-/* Search container */
-.search-container {
-  display: flex;
-  margin-top: 20px;
-}
+  /* Search container */
+  .search-container {
+    display: flex;
+    margin-top: 20px;
+  }
 
 /* Individual search result item */
 .search-item {

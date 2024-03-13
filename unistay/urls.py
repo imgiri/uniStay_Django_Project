@@ -18,6 +18,9 @@ urlpatterns = [
     path('logout_user/', views.logout_user, name='logout_user'),
     path('profile/', views.view_profile, name='view_profile'),
     path('accommodation/', views.accommodation_list, name='accommodation_list'),
+    path('write_a_review/', views.write_a_review, name='write_a_review'),
+    path('write_review/', views.write_review, name='write__review'),
+
 
 ]
 
