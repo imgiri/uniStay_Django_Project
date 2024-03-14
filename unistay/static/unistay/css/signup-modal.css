@@ -1,16 +1,16 @@
 /*modal signup*/
 /* Custom styles for the modal */
 #signupModal .modal-content {
-   border-radius: 15px; /* Rounded corners for the modal */
+   border-radius: 15px; 
  }
  
  #signupModal .modal-header {
-   border-bottom: none; /* Remove border under the header */
-   position: relative; /* For absolute positioning of the close button */
+   border-bottom: none; 
+   position: relative;
  }
  
  #signupModal .modal-title {
-   font-size: 1.5rem; /* Larger text for the title */
+   font-size: 1.5rem; 
    font-weight: bold;
  }
  
@@ -21,22 +21,22 @@
  }
  
  #signupModal .modal-body {
-   padding: 2rem; /* More padding inside the modal body */
+   padding: 2rem; 
    font-size: 1.5rem;
    line-height: normal;
  }
  
  #signupModal .form-check {
-   padding: 2rem; /* More padding inside the modal body */
+   padding: 2rem; 
    font-size: 1.5rem;
    line-height: normal;
    margin-top: 10px;
  }
  
  #signupModal .form-control {
-   height: calc(2.4em + 0.75rem + 2px); /* Larger form fields */
-   padding: 0.375rem 0.75rem; /* Padding inside form fields */
-   margin-bottom: 1rem; /* Space between form fields */
+   height: calc(2.4em + 0.75rem + 2px); 
+   padding: 0.375rem 0.75rem;
+   margin-bottom: 1rem;
    font-size: medium;
  }
  
@@ -55,7 +55,7 @@
  }
  
  #signupModal .btn-outline-secondary {
-   border-width: 2px; /* Thicker border for the Google button */
+   border-width: 2px; 
  }
  
  /* Logo styles */

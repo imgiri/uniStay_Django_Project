@@ -1,17 +1,25 @@
  $(document).ready(function() {
+    // Set up default options for AJAX requests
     $.ajaxSetup({
+        // Before sending the request, check if it's not a cross-domain request
         beforeSend: function(xhr, settings) {
             if (!this.crossDomain) {
+                // Set X-CSRFToken header with the value of the CSRF token retrieved from the cookie
                 xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
             }
         }
     });
 
+    // Function to retrieve a cookie by name
     function getCookie(name) {
         var cookieValue = null;
+        // Check if cookies are present and not empty
         if (document.cookie && document.cookie !== '') {
+            // Split cookies string into individual cookies
             var cookies = document.cookie.split(';');
+            // Loop through each cookie
             for (var i = 0; i < cookies.length; i++) {
+                // Trim any whitespace from the cookie string
                 var cookie = jQuery.trim(cookies[i]);
                 if (cookie.substring(0, name.length + 1) === (name + '=')) {
                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
@@ -88,19 +96,11 @@
         $.ajax({
             type: 'POST',
             url: logoutUserUrl,
-            /*data: {
-                'csrfmiddlewaretoken': $('input[name="csrfmiddlewaretoken"]').val()
-            },*/
+            
             dataType: 'json',
             success: function(response) {
                 if (response.success) {
                     alert(response.message);
-                    /*// Hide logout and profile buttons
-                    $('#logoutButton').hide();
-                    $('#profileButton').hide();
-                    // Show login and signup buttons
-                    $('#loginButton').show();
-                    $('#signupButton').show();*/
                     
                     $('.logged-out').removeClass('d-none'); // This hides elements
                     $('.logged-in').addClass('d-none'); // This shows elements
@@ -113,24 +113,5 @@
             }
         });
     });
-
-    /*$('#writeReviewButton').click(function(e) {
-        e.preventDefault();
-        $.ajax({
-            url: writeReviewButton,  // Update this with the correct path
-            method: 'POST',  // or 'POST' depending on your implementation
-            success: function(data) {
-                console.log('over here')
-                // Logic to open the review form or proceed as normal
-            },
-            error: function(xhr, status, error) {
-                if (xhr.status == 403 && xhr.responseJSON.login_required) {
-                    $('#loginModal').modal('show');  // Show the login modal
-                } else {
-                    // Handle other errors
-                }
-            }
-        });
-    });*/
 
 });

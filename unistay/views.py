@@ -17,8 +17,6 @@ from .decorators import login_required_ajax
 from django.utils import timezone
 
 
-
-
 # Create your views here.
 
 def index(request):
@@ -60,17 +58,6 @@ def view_profile(request):
 def faq(request):
     return render(request, 'unistay/faq.html')
 
-"""def signup(request):
-    if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('login') 
-    else:
-        form = CustomUserCreationForm()
-    return render(request, 'unistay/signup.html', {'form': form})"""
-
-
 def signup(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -80,10 +67,9 @@ def signup(request):
             user.first_name = form.cleaned_data['first_name']
             user.last_name = form.cleaned_data['last_name']
             user.save()
-            # Handle the marketing opt-in and birthday fields as needed
-            # ...
+            
             login(request, user)
-            return redirect('index')  # Redirect to the homepage or other appropriate page
+            return redirect('index')  # Redirect to the homepage
     else:
         form = CustomUserCreationForm()
     return render(request, 'unistay/signup.html', {'form': form})
@@ -147,16 +133,6 @@ def accommodation_list(request):
     
     # Start with all records
     accommodations = Accommodation.objects.all()
-
-    # Apply filters if present
-    """if type_filter:
-        accommodations = accommodations.filter(type=type_filter)
-    if bedrooms_filter:
-        accommodations = accommodations.filter(bedrooms=bedrooms_filter)
-    if budget_filter:
-        accommodations = accommodations.filter(budget__lte=budget_filter)
-    if bathroom_type_filter:
-        accommodations = accommodations.filter(bathroom_type=bathroom_type_filter)"""
     
     # Render the filtered queryset to a template
     return render(request, 'unistay/accommodation-list.html', {'accommodations': accommodations})
@@ -188,27 +164,16 @@ def write_review(request):
             accommodation=accommodation,
             rating=rating,
             review=review,
-            date=timezone.now()  # Assuming you want to set the review date to now
+            date=timezone.now()  #set the review date to now
         )
         
         review_instance.save()
-        
+
     
-        # Redirect to a success page or the accommodation detail page
-        return redirect('index')  # Replace 'some_success_url' with your actual URL name
+        # Redirect to a index page 
+        return redirect('index')  
 
     return render(request, 'unistay/write-review.html', context)
-
-"""def login_required_ajax(view_func):
-    @wraps(view_func)
-    def _wrapped_view(request, *args, **kwargs):
-        if not request.user.is_authenticated:
-            if request.is_ajax():
-                return JsonResponse({'login_required': True}, status=403)
-            else:
-                return login_required(view_func)(request, *args, **kwargs)
-        return view_func(request, *args, **kwargs)
-    return _wrapped_view"""
 
 #@login_required_ajax
 def write_a_review(request):

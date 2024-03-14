@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 
-# User model is already provided by Django, extend it using a OneToOneField if needed.
-
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     user_type = models.CharField(max_length=20, choices=[('individual', 'Individual'), ('business', 'Business')], default='individual')
