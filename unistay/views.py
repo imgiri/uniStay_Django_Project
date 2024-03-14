@@ -192,6 +192,7 @@ def write_review(request):
         )
         
         review_instance.save()
+        
     
         # Redirect to a success page or the accommodation detail page
         return redirect('index')  # Replace 'some_success_url' with your actual URL name
